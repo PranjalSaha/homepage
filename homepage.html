@@ -1,0 +1,150 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Home Page Layout</title>
+
+
+
+    <style>
+
+        @font-face {
+            font-family: '7-segment';
+            src: url('./fonts/digital-7 (mono italic).ttf') format('truetype');
+            font-weight: normal;
+            font-size: normal;
+        }
+
+        body 
+        {
+            margin: 0;
+            height: 100vh;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+            align-items: center;
+            background: url('./photos/Swans.jpg') no-repeat center center fixed;
+            background-size: cover;
+            color: white;
+        }
+
+        header 
+        {
+            width: 100%;
+            padding: 20px;
+            text-align: right;
+        }
+
+        #clock 
+        {
+            font-size: 15vw;
+            text-shadow: 2px 2px 10px black;
+            font-family: '7-segment', monospace; /* this applies it globally*/
+        }
+
+        form 
+        {
+            margin-bottom: 40px;
+            text-align: center;
+        }
+
+        input[type="text"] 
+        {
+            padding: 10px;
+            font-size: 16px;
+            width: 300px;
+            border-radius: 5px;
+            border: none;
+        }
+
+        .quick-link 
+        {
+            background: rgba(0, 0, 0, 0.5);
+            color: white;
+            padding: 6px 10px;
+            border-radius: 6px;
+            text-decoration: none;
+            font-size: 14px;
+            margin: 0 5px;
+            transition: background 0.3s ease;
+        }
+
+        .quick-link:hover 
+            {background: rgba(255, 255, 255, 0.2);}
+
+        button 
+        {
+            padding: 10px 15px;
+            font-size: 16px;
+            border-radius: 5px;
+            margin-left: 10px;
+            background-color: #DE5833;
+            color: white;
+            border: none;
+            cursor: pointer;
+        }
+    </style>
+
+</head>
+
+<body>
+
+    <!-- Top: Link -->
+    <header>
+
+        <div>
+            <a href="https://chat.openai.com/" 
+                    target="_blank" class="quick-link">
+                ChatGPT
+            </a>
+
+            <a href="https://bard.google.com/" 
+                    target="_blank" class="quick-link">
+                Bard
+            </a>
+        </div>
+
+    </header>
+
+    <!-- Middle: Clock -->
+    <div id="clock">
+        <span id="hours-minutes" style="font-size : 1em"></span>
+        <span id="seconds" style="font-size: 0.5em;"></span>
+    </div>
+
+    <!-- Bottom: DuckDuckGo Search -->
+    <form action="https://duckduckgo.com/" method="get">
+        <input type="text" name="q" placeholder="Search with DuckDuckGo" />
+            <button type="submit">&nbsp</button>
+    </form>
+
+    <script>
+        function updateClock() 
+        {
+            const now = new Date();
+
+            let hours = now.getHours();
+            let minutes = now.getMinutes();
+            let seconds = now.getSeconds();
+
+            minutes = minutes.toString().padStart(2, '0');
+            seconds = seconds.toString().padStart(2, '0');
+
+            now.toLocaleTimeString();
+
+            document.getElementById('hours-minutes').textContent = 
+                `${hours}:${minutes}`;
+            document.getElementById('seconds').textContent =
+                `${seconds}`
+        }
+
+        updateClock();
+        setInterval(updateClock, 1000);
+
+    </script>
+
+</body>
+
+</html>

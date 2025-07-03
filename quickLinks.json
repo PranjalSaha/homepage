@@ -1,0 +1,14 @@
+[
+    {
+        "name": "Open ChatGPT",
+        "url": "https://chat.openai.com"
+    },
+    {
+        "name": "Open Bard",
+        "url": "https://bard.google.com"
+    },
+    {
+        "name": "DuckDuckGo",
+        "url": "https://duckduckgo.com"
+    }
+]
